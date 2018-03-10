@@ -1,0 +1,12 @@
+App\Aurora\Infrastructure\User\User:
+    type: entity
+    table: users
+    repositoryClass: App\Aurora\Domain\User\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        username:
+            type: string
+            length: 100

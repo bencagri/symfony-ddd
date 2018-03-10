@@ -1,0 +1,7 @@
+# app/config/config.yml
+fos_oauth_server:
+    db_driver: orm       # Drivers available: orm, mongodb, or propel
+    client_class:        App\Authorization\Entity\Oauth2\Client
+    access_token_class:  App\Authorization\Entity\Oauth2\AccessToken
+    refresh_token_class: App\Authorization\Entity\Oauth2\RefreshToken
+    auth_code_class:     App\Authorization\Entity\Oauth2\AuthCode
