@@ -1,0 +1,4 @@
+aurora_home:
+    path: "/api/home"
+    methods: GET
+    controller: App\Aurora\Http\Controller\HomeController::index
