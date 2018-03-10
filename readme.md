@@ -9,5 +9,16 @@ I created this repository to create DDD Applications with Symfony faster.
 - Doctrine ORM Bundle
 - Twig Bundle
 - Fos Oauth Server Bundle
+- Nelmio Doc Bundle
 
+#### how to? 
 
+``` 
+git clone https://github.com/bencagri/symfony4-ddd-skeleton.git
+cd symfony4-ddd-skeleton
+bin/console doctrine:schema:update --force
+php -S 127.0.0.1:8000 -t public
+
+```
+
+then visit `127.0.0.1:9002/api/doc` 
