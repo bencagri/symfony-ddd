@@ -1,7 +1,3 @@
-imports:
-  - { resource: "../src/Aurora/Resources/config/services.yaml"}
-
-
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
@@ -27,5 +23,13 @@ services:
         resource: '../src/Aurora/Http/Controller'
         tags: ['controller.service_arguments']
 
+    ## Register commands
+    App\Aurora\Console\:
+        resource: '../src/Aurora/Console'
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+imports:
+  - { resource: "../src/Aurora/Resources/config/services.yaml"}
+
