@@ -1,0 +1,42 @@
+App\Aurora\Infrastructure\Article\Article:
+    type: entity
+    table: articles
+    repositoryClass: App\Aurora\Domain\Article\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 100
+
+        body:
+            type: text
+
+        images:
+            type: json
+
+    manyToMany:
+        tags:
+            targetEntity: App\Aurora\Infrastructure\Article\Tag
+            cascade: [ 'persist' ]
+            fetch: EXTRA_LAZY
+            indexBy: type
+            joinTable:
+                name: article_tags
+
+        contributors:
+            targetEntity: App\Aurora\Infrastructure\User\User
+            cascade: [ 'persist' ]
+            fetch: EXTRA_LAZY
+            indexBy: type
+            joinTable:
+                name: article_contributors
+
+
+    manyToOne:
+        author:
+            targetEntity: App\Aurora\Infrastructure\User\User
+            cascade: [ 'persist' ]
+            fetch: EAGER
