@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ * @ORM\Table(name="oauth2_auth_code")
  */
 class AuthCode extends BaseAuthCode
 {
