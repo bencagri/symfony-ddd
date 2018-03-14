@@ -1,0 +1,14 @@
+aurora_home:
+    path: "/api/home"
+    methods: GET
+    controller: App\Aurora\Http\Controller\HomeController::index
+
+articles.get:
+    path: "/api/articles"
+    methods: GET
+    controller: App\Aurora\Http\Controller\ArticleController:index
+
+articles.create:
+    path: "/api/articles"
+    methods: POST
+    controller: App\Aurora\Http\Controller\ArticleController:create
