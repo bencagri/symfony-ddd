@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Aurora\Infrastructure\User;
-
-use Doctrine\ORM\Mapping as ORM;
+namespace App\Aurora\Domain\User;
 
 class User {
 

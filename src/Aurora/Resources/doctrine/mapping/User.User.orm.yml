@@ -1,14 +1,12 @@
-App\Aurora\Infrastructure\Article\Tag:
+App\Aurora\Domain\User\User:
     type: entity
-    table: tags
+    table: users
+    repositoryClass: App\Aurora\Infrastructure\User\UserRepository
     id:
         id:
             type: integer
             generator: { strategy: AUTO }
     fields:
-        title:
-            type: string
-            length: 100
-        slug:
+        username:
             type: string
             length: 100

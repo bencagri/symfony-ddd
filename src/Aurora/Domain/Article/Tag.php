@@ -1,15 +1,9 @@
 <?php
 
 
-namespace App\Aurora\Infrastructure\Article;
+namespace App\Aurora\Domain\Article;
 
 
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity
- * @ORM\Table(name="tag")
- */
 class Tag
 {
 

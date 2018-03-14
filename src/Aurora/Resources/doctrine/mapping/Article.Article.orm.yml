@@ -1,7 +1,7 @@
-App\Aurora\Infrastructure\Article\Article:
+App\Aurora\Domain\Article\Article:
     type: entity
     table: articles
-    repositoryClass: App\Aurora\Domain\Article\Repository\ArticleRepository
+    repositoryClass: App\Aurora\Domain\Infrastructure\Article\ArticleRepository
     id:
         id:
             type: integer
@@ -19,7 +19,7 @@ App\Aurora\Infrastructure\Article\Article:
 
     manyToMany:
         tags:
-            targetEntity: App\Aurora\Infrastructure\Article\Tag
+            targetEntity: App\Aurora\Domain\Article\Tag
             cascade: [ 'persist' ]
             fetch: EXTRA_LAZY
             indexBy: type
@@ -27,7 +27,7 @@ App\Aurora\Infrastructure\Article\Article:
                 name: article_tags
 
         contributors:
-            targetEntity: App\Aurora\Infrastructure\User\User
+            targetEntity: App\Aurora\Domain\User\User
             cascade: [ 'persist' ]
             fetch: EXTRA_LAZY
             indexBy: type
@@ -37,6 +37,6 @@ App\Aurora\Infrastructure\Article\Article:
 
     manyToOne:
         author:
-            targetEntity: App\Aurora\Infrastructure\User\User
+            targetEntity: App\Aurora\Domain\User\User
             cascade: [ 'persist' ]
             fetch: EAGER

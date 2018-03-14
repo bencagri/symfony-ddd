@@ -25,7 +25,7 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Aurora\Infrastructure\User\User")
+     * @ORM\ManyToOne(targetEntity="App\Aurora\Domain\User\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;

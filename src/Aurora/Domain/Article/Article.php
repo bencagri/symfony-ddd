@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Aurora\Infrastructure\Article;
+namespace App\Aurora\Domain\Article;
 
 
-use App\Aurora\Infrastructure\User\User;
+use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Article

@@ -29,6 +29,6 @@ doctrine:
             Aurora:
                 is_bundle: false
                 type: yml
-                dir: '%kernel.project_dir%/src/Aurora/Resources/mapping'
-                prefix: 'App\Aurora\Infrastructure'
+                dir: '%kernel.project_dir%/src/Aurora/Resources/doctrine/mapping'
+                prefix: 'App\Aurora\Domain'
                 alias: App
