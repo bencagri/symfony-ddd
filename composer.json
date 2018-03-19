@@ -8,6 +8,7 @@
         "doctrine/orm": "^2.6",
         "friendsofsymfony/oauth-server-bundle": "dev-master",
         "nelmio/api-doc-bundle": "^3.1",
+        "samj/fractal-bundle": "^2.1",
         "symfony/asset": "^4.0",
         "symfony/console": "^4.0",
         "symfony/flex": "^1.0",
@@ -17,6 +18,7 @@
         "symfony/templating": "^4.0",
         "symfony/twig-bundle": "^4.0",
         "symfony/validator": "^4.0",
+        "symfony/var-dumper": "^4.0",
         "symfony/yaml": "^4.0"
     },
     "require-dev": {
