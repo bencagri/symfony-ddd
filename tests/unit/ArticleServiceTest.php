@@ -28,7 +28,7 @@ class ArticleServiceTest extends UnitTest
         //see in db
         /** @var Article $article */
         $article = $this->em->getRepository(Article::class)->findOneBy(['title' => $articleTitle]);
-        dump($article);
+
         $this->assertEquals($article->getTitle(), $articleTitle);
     }
 }
