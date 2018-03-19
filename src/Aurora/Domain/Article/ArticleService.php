@@ -47,7 +47,10 @@ class ArticleService
 
         $userRepository = $this->entityManager->getRepository(User::class);
 
-        $user = $userRepository->find($request->request->get('user'));
+        $user = null;
+        if ($request->request->get('user')) {
+            $user = $userRepository->find($request->request->get('user'));
+        }
 
         if (!$user){
             $user = new User();
