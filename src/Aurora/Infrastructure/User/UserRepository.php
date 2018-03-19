@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Aurora\Domain\User\Repository;
+namespace App\Aurora\Infrastructure\User;
 
 use App\Aurora\Domain\User\Contract\UserRepositoryInterface;
 use App\Aurora\App\Support\AppEntityRepository;

@@ -2,7 +2,6 @@
 
 namespace App\Aurora\Http\Controller;
 
-use App\Aurora\App\Support\AppController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -1,7 +1,7 @@
 App\Aurora\Domain\Article\Article:
     type: entity
     table: articles
-    repositoryClass: App\Aurora\Domain\Infrastructure\Article\ArticleRepository
+    repositoryClass: App\Aurora\Infrastructure\Article\ArticleRepository
     id:
         id:
             type: integer
@@ -16,6 +16,7 @@ App\Aurora\Domain\Article\Article:
 
         images:
             type: json
+            nullable: true
 
     manyToMany:
         tags:

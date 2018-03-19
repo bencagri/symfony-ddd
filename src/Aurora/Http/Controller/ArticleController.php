@@ -3,9 +3,7 @@
 
 namespace App\Aurora\Http\Controller;
 
-use App\Aurora\App\Support\AppController;
 use App\Aurora\Domain\Article\ArticleService;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ArticleController extends AppController
@@ -16,19 +14,24 @@ class ArticleController extends AppController
      */
     private $articleService;
 
-    public function __construct(ArticleService $articleService)
-    {
 
+    public function setArticleService(ArticleService $articleService)
+    {
         $this->articleService = $articleService;
     }
 
     public function index()
     {
-        return new JsonResponse($this->articleService->getArticles());
+        $articles = $this->articleService->getArticles();
+
+        return $this->response($articles);
+
     }
 
     public function create(Request $request)
     {
+
+        $success = $this->articleService->addArticle($request);
 
     }
 

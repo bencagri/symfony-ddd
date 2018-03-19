@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Aurora\Domain\Article\Repository;
+namespace App\Aurora\Infrastructure\Article;
 
 use App\Aurora\App\Support\AppEntityRepository;
 
