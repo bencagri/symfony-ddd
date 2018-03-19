@@ -1,8 +1,17 @@
+imports:
+  - { resource: "transformers.yaml"}
+  - { resource: "controllers.yaml"}
+
 services:
   ## here will be aurora's services
 
+  aurora.fractal.manager:
+       class: App\Aurora\App\Support\FractalService
+       public: true
+  App\Aurora\App\Support\FractalService: '@aurora.fractal.manager'
+
   aurora.article.service:
       class: App\Aurora\Domain\Article\ArticleService
-      arguments: ['@doctrine.orm.entity_manager']
-
+      public: true
+      arguments: ['@doctrine.orm.entity_manager','@aurora.article.transformer']
   App\Aurora\Domain\Article\ArticleService: '@aurora.article.service'
