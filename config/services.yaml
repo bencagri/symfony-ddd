@@ -31,6 +31,14 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+
+#    fractal.service.on.kernel.response:
+#        class: App\Aurora\App\EventListenter\KernelResponseListener
+#        arguments: ["@aurora.fractal.manager"]
+#        tags:
+#           - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
 imports:
   - { resource: "../src/Aurora/Resources/config/services.yaml"}
+
 

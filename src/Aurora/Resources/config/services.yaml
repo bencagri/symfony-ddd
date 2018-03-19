@@ -1,6 +1,5 @@
 imports:
   - { resource: "transformers.yaml"}
-  - { resource: "controllers.yaml"}
 
 services:
   ## here will be aurora's services

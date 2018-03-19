@@ -39,6 +39,9 @@ class ArticleService
         return new Collection($articles,$this->articleTransformer);
     }
 
+    /**
+     * @param Request $request
+     */
     public function addArticle(Request $request)
     {
 
