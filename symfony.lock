@@ -17,6 +17,9 @@
     "doctrine/common": {
         "version": "v2.8.1"
     },
+    "doctrine/data-fixtures": {
+        "version": "v1.3.0"
+    },
     "doctrine/dbal": {
         "version": "v2.6.3"
     },
@@ -31,6 +34,15 @@
     },
     "doctrine/doctrine-cache-bundle": {
         "version": "1.3.2"
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "2ea6070ecf365f9a801ccaed4b31d4a3b7af5693"
+        }
     },
     "doctrine/inflector": {
         "version": "v1.3.0"
@@ -76,6 +88,9 @@
             "version": "3.0",
             "ref": "d76d09603a98c2e2b78ef038ef8a961f51b86da0"
         }
+    },
+    "nikic/php-parser": {
+        "version": "v4.0.0"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -181,6 +196,15 @@
     },
     "symfony/lts": {
         "version": "4-dev"
+    },
+    "symfony/maker-bundle": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
+        }
     },
     "symfony/options-resolver": {
         "version": "v4.0.6"
