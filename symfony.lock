@@ -65,20 +65,11 @@
     "friendsofsymfony/oauth2-php": {
         "version": "1.2.3"
     },
-    "fzaninotto/faker": {
-        "version": "v1.7.1"
-    },
     "jdorn/sql-formatter": {
         "version": "v1.2.17"
     },
     "league/fractal": {
         "version": "0.17.0"
-    },
-    "myclabs/deep-copy": {
-        "version": "1.7.0"
-    },
-    "nelmio/alice": {
-        "version": "v3.2.1"
     },
     "nelmio/api-doc-bundle": {
         "version": "3.0",
