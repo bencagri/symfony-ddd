@@ -8,6 +8,7 @@ use App\Aurora\Domain\Article\ArticleService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RouterInterface;
 
 class ArticleController extends AppController
 {
@@ -22,17 +23,22 @@ class ArticleController extends AppController
      * @var FractalService
      */
     private $fractalService;
+    /**
+     * @var RouterInterface
+     */
+    private $router;
 
-    public function __construct(ArticleService $articleService, FractalService $fractalService)
+    public function __construct(ArticleService $articleService, FractalService $fractalService, RouterInterface $router)
     {
         $this->articleService = $articleService;
         $this->fractalService = $fractalService;
+        $this->router = $router;
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        $articles = $this->articleService->getArticles();
+        $articles = $this->articleService->getArticles($request, $this->router);
 
         return new JsonResponse($this->fractalService->transform($articles));
     }

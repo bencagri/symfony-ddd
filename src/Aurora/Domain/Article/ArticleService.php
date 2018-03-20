@@ -3,12 +3,17 @@
 namespace App\Aurora\Domain\Article;
 
 use App\Aurora\Domain\Article\Entity\Article;
-use App\Aurora\Domain\User\User;
+use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use League\Fractal\Pagination\Cursor;
+use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
+use Pagerfanta\Adapter\DoctrineORMAdapter;
+use Pagerfanta\Pagerfanta;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Routing\RouterInterface;
 
 class ArticleService
 {
@@ -22,6 +27,10 @@ class ArticleService
      * @var ArticleTransformer
      */
     private $articleTransformer;
+    /**
+     * @var RouterInterface
+     */
+    private $router;
 
     public function __construct(EntityManagerInterface $entityManager, ArticleTransformer $articleTransformer)
     {
@@ -31,13 +40,31 @@ class ArticleService
     }
 
     /**
+     * @param Request $request
+     * @param RouterInterface $router
      * @return Collection|Item
      */
-    public function getArticles()
+    public function getArticles(Request $request, RouterInterface $router)
     {
-        $articles = $this->entityManager->getRepository(Article::class)->findAll();
+        $page = NULL !== $request->get('page') ? (int) $request->get('page') : 1;
+        $articles = $this->entityManager->getRepository(Article::class);
 
-        return new Collection($articles,$this->articleTransformer, 'article');
+        $doctrineAdapter = new DoctrineORMAdapter($articles->getArticles());
+        $paginator = new Pagerfanta($doctrineAdapter);
+        $paginator->setCurrentPage($page);
+        $filteredResults = $paginator->getCurrentPageResults();
+
+        $paginatorAdapter = new PagerfantaPaginatorAdapter($paginator, function(int $page) use ($request, $router) {
+            $route = $request->attributes->get('_route');
+            $inputParams = $request->attributes->get('_route_params');
+            $newParams = array_merge($inputParams, $request->query->all());
+            $newParams['page'] = $page;
+            return $router->generate($route, $newParams, 0);
+        });
+
+        $resource = new Collection($filteredResults,$this->articleTransformer, 'article');
+        $resource->setPaginator($paginatorAdapter);
+        return $resource;
     }
 
     /**
