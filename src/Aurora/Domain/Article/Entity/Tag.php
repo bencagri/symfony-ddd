@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Aurora\Domain\Article;
+namespace App\Aurora\Domain\Article\Entity;
 
 
 class Tag

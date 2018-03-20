@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Aurora\Domain\User;
+namespace App\Aurora\Domain\User\Entity;
 
 class User {
 

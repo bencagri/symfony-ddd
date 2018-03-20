@@ -25,7 +25,7 @@ class AuthCode extends BaseAuthCode
     protected $client;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Aurora\Domain\User\User")
+     * @ORM\ManyToOne(targetEntity="App\Aurora\Domain\User\Entity\User")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     protected $user;

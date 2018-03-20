@@ -1,4 +1,4 @@
-App\Aurora\Domain\Article\Tag:
+App\Aurora\Domain\Article\Entity\Tag:
     type: entity
     table: tags
     id:

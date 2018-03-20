@@ -1,4 +1,4 @@
-App\Aurora\Domain\User\User:
+App\Aurora\Domain\User\Entity\User:
     type: entity
     table: users
     repositoryClass: App\Aurora\Infrastructure\User\UserRepository
