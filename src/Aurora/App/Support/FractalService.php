@@ -10,6 +10,17 @@ class FractalService extends Manager
 {
 
     /**
+     * @var string
+     */
+    private $baseUrl;
+
+    public function __construct($baseUrl)
+    {
+        $this->baseUrl = $baseUrl;
+        parent::__construct();
+    }
+
+    /**
      * @param $resource
      * @param bool $success
      * @return array
@@ -18,7 +29,7 @@ class FractalService extends Manager
     {
         if ($resource instanceof ResourceInterface){
 
-            $this->setSerializer(new JsonApiSerializer());
+            $this->setSerializer(new JsonApiSerializer($this->baseUrl));
 
             //if there is an include, set transformer include
             if ( isset($_GET['include']) && !empty($_GET['include'])) {

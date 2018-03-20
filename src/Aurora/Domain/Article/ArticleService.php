@@ -37,7 +37,7 @@ class ArticleService
     {
         $articles = $this->entityManager->getRepository(Article::class)->findAll();
 
-        return new Collection($articles,$this->articleTransformer);
+        return new Collection($articles,$this->articleTransformer, 'article');
     }
 
     /**

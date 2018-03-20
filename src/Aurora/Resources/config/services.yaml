@@ -7,6 +7,7 @@ services:
   aurora.fractal.manager:
        class: App\Aurora\App\Support\FractalService
        public: true
+       arguments: ['%siteUrl%']
   App\Aurora\App\Support\FractalService: '@aurora.fractal.manager'
 
   aurora.article.service:
