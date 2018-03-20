@@ -3,6 +3,7 @@
 namespace App\Aurora\App\Support;
 
 use League\Fractal\Manager;
+use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
 use League\Fractal\Resource\ResourceInterface;
 use League\Fractal\Serializer\JsonApiSerializer;
 
@@ -48,6 +49,17 @@ class FractalService extends Manager
 
         return $response;
 
+    }
+
+    protected function paginatorAdapter()
+    {
+        $paginatorAdapter = new PagerfantaPaginatorAdapter($paginator, function(int $page) use ($request, $router) {
+            $route = $request->attributes->get('_route');
+            $inputParams = $request->attributes->get('_route_params');
+            $newParams = array_merge($inputParams, $request->query->all());
+            $newParams['page'] = $page;
+            return $router->generate($route, $newParams, 0);
+        });
     }
 
 }

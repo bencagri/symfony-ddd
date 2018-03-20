@@ -8,6 +8,11 @@ articles.get:
     methods: GET
     controller: App\Aurora\Http\Controller\ArticleController:index
 
+articles.get.by.id:
+    path: "/api/article/{id}"
+    methods: GET
+    controller: App\Aurora\Http\Controller\ArticleController:article
+
 articles.create:
     path: "/api/articles"
     methods: POST

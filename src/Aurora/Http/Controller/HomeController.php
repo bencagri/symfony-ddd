@@ -21,7 +21,7 @@ class HomeController extends AppController
      * @SWG\Parameter(
      *     name="order",
      *     in="query",
-     *     type="string",
+     *     type="integer",
      *     description="The field used to order rewards"
      * )
      * @SWG\Tag(name="home")

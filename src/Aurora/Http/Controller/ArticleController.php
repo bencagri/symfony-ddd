@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
+use Swagger\Annotations as SWG;
 
 class ArticleController extends AppController
 {
@@ -36,11 +37,57 @@ class ArticleController extends AppController
     }
 
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns the article collection"
+     * )
+     * @SWG\Parameter(
+     *     name="page",
+     *     in="query",
+     *     type="integer",
+     *     description="current page",
+     *     default="1"
+     * )
+     * @SWG\Parameter(
+     *     name="per_page",
+     *     in="query",
+     *     type="integer",
+     *     description="limit per page",
+     *     default="10"
+     * )
+     * @SWG\Tag(name="articles")
+     */
     public function index(Request $request)
     {
         $articles = $this->articleService->getArticles($request, $this->router);
 
         return new JsonResponse($this->fractalService->transform($articles));
+    }
+
+    /**
+     * @param $id
+     * @return JsonResponse
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns single article Item"
+     * )
+     * @SWG\Response(
+     *     response=500,
+     *     description="Returns error"
+     * )
+     * @SWG\Tag(name="articles")
+     */
+    public function article($id)
+    {
+        try {
+            $article = $this->articleService->getArticleById($id);
+            return new JsonResponse($this->fractalService->transform($article));
+        }catch (\Exception $e){
+            return new JsonResponse($this->fractalService->transform($e->getMessage(),false), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 
     public function create(Request $request)

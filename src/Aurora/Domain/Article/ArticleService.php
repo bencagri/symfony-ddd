@@ -6,6 +6,7 @@ use App\Aurora\Domain\Article\Entity\Article;
 use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\EntityNotFoundException;
 use League\Fractal\Pagination\Cursor;
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
 use League\Fractal\Resource\Collection;
@@ -47,11 +48,15 @@ class ArticleService
     public function getArticles(Request $request, RouterInterface $router)
     {
         $page = NULL !== $request->get('page') ? (int) $request->get('page') : 1;
+        $perPage = NULL !== $request->get('per_page') ? (int) $request->get('per_page') : 10;
+
         $articles = $this->entityManager->getRepository(Article::class);
 
         $doctrineAdapter = new DoctrineORMAdapter($articles->getArticles());
         $paginator = new Pagerfanta($doctrineAdapter);
         $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage($perPage);
+
         $filteredResults = $paginator->getCurrentPageResults();
 
         $paginatorAdapter = new PagerfantaPaginatorAdapter($paginator, function(int $page) use ($request, $router) {
@@ -65,6 +70,21 @@ class ArticleService
         $resource = new Collection($filteredResults,$this->articleTransformer, 'article');
         $resource->setPaginator($paginatorAdapter);
         return $resource;
+    }
+
+    /**
+     * @param $id
+     * @return Item
+     * @throws EntityNotFoundException
+     */
+    public function getArticleById($id)
+    {
+        $article = $this->entityManager->getRepository(Article::class)->find($id);
+
+        if ($article)
+            return new Item($article, $this->articleTransformer, 'article');
+
+        throw new EntityNotFoundException("Article not found");
     }
 
     /**
@@ -91,8 +111,7 @@ class ArticleService
         $article->setAuthor($user);
         $article->setContributors(new ArrayCollection([$user]));
 
-        $this->entityManager->persist($article);
-        $this->entityManager->flush();
+        $this->entityManager->getRepository(Article::class)->save($article);
 
     }
 }

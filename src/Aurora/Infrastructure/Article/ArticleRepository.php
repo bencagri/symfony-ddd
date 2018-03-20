@@ -14,4 +14,10 @@ class ArticleRepository extends AppEntityRepository
         return $this->createQueryBuilder('a')
             ->getQuery();
     }
+
+    public function save(Article $article)
+    {
+        $this->_em->persist($article);
+        $this->_em->flush();
+    }
 }
