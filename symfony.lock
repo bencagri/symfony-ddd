@@ -83,6 +83,9 @@
     "nikic/php-parser": {
         "version": "v4.0.0"
     },
+    "pagerfanta/pagerfanta": {
+        "version": "v1.0.5"
+    },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
     },
