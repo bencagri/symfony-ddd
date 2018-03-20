@@ -1,9 +1,20 @@
 nelmio_api_doc:
     documentation:
         info:
-            title: My App
-            description: This is an awesome app!
+            title: Aurora Article
+            description: Article Api with Symfony DDD!
             version: 1.0.0
+#        securityDefinitions:
+#            api_key:
+#                type: apiKey
+#                description: Your Json Web Token
+#                name:  authorization
+#                in: header
+#        security:
+#            - api_key: []
+
+
     areas: # to filter documented routes
         path_patterns:
             - ^/api(?!/doc$) # Accepts routes under /api except /api/doc
+            - ^/oauth # Accepts routes under /oauth
