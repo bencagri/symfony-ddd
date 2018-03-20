@@ -3,7 +3,7 @@
 namespace App\Aurora\Domain\Article\Entity;
 
 
-use App\Aurora\Domain\User\User;
+use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Article
