@@ -2,6 +2,7 @@
 
 namespace App\Aurora\Domain\Article;
 
+use App\Aurora\Domain\Article\Entity\Article;
 use App\Aurora\Domain\User\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;

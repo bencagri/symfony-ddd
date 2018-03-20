@@ -31,7 +31,7 @@ class FractalService extends Manager
         }else{
             $response = [
                 'success' => $success,
-                'error' => ['message' => $resource]
+                'message' => $resource
             ];
         }
 
