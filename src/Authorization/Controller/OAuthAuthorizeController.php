@@ -5,7 +5,10 @@ namespace App\Authorization\Controller;
 use FOS\OAuthServerBundle\Controller\AuthorizeController;
 use Nelmio\ApiDocBundle\Annotation\Operation;
 use Swagger\Annotations as SWG;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Class OAuthAuthorizeController
@@ -16,6 +19,9 @@ use Symfony\Component\HttpFoundation\Request;
 class OAuthAuthorizeController extends AuthorizeController {
     /**
      * Authorize user
+     *
+     * @Route("/oauth/v2/auth")
+     * @Method({"POST"})
      *
      * @Operation(
      *     tags={"OAuth"},
@@ -51,6 +57,7 @@ class OAuthAuthorizeController extends AuthorizeController {
      */
     public function authorize(Request $request)
     {
+        return new JsonResponse(['test']);
         return parent::authorizeAction($request);
     }
 }

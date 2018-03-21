@@ -31,8 +31,8 @@ services:
 
     ## Fixtures
     App\DataFixtures\:
-            resource: '../src/DataFixtures'
-            tags: ['doctrine.fixture.orm']
+        resource: '../src/DataFixtures'
+        tags: ['doctrine.fixture.orm']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
@@ -43,7 +43,6 @@ services:
 #        arguments: ["@aurora.fractal.manager"]
 #        tags:
 #           - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
-
 imports:
   - { resource: "../src/Aurora/Resources/config/services.yaml"}
 

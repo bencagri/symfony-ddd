@@ -7,12 +7,12 @@ use FOS\OAuthServerBundle\Model\TokenInterface;
 use Nelmio\ApiDocBundle\Annotation\Operation;
 use Swagger\Annotations as SWG;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * Class OAuthTokenController
  * @package App\Authorization\Controller
- *
- * {@inheritdoc}
  */
 class OAuthTokenController extends TokenController {
     /**
@@ -20,6 +20,8 @@ class OAuthTokenController extends TokenController {
      * @param Request $request
      * @return TokenInterface
      *
+     * @Route("/oauth/v2/token")
+     * @Method("POSt")
      *
      * @Operation(
      *     tags={"OAuth"},
@@ -98,7 +100,7 @@ class OAuthTokenController extends TokenController {
      * )
      *
      */
-    public function token(Request $request)
+    public function tokenAction(Request $request)
     {
         if ( ! $request->request->get('grant_type')){
             $request->request->set('grant_type','client_credentials');

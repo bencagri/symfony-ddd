@@ -7,6 +7,12 @@ aurora:
     resource: '../src/Aurora/Resources/routing/'
     type:     directory
 
+authorization:
+    resource: '../src/Authorization/Controller/'
+    type: annotation
+
+
+### OVERRIDE DEFAULT fos oauth controller services to disable GET methods
 fos_oauth_server_authorize:
     path: /oauth/v2/auth
     methods: POST
@@ -15,4 +21,4 @@ fos_oauth_server_authorize:
 fos_oauth_server_token:
     path: /oauth/v2/token
     methods: POST
-    controller: App\Authorization\Controller\OAuthTokenController:token
+    controller: App\Authorization\Controller\OAuthTokenController:tokenAction

@@ -18,7 +18,7 @@ security:
             # https://symfony.com/doc/current/security/form_login_setup.html
 
         oauth_token:
-            pattern:    ^/oauth/v2/token
+            pattern:    ^/api/oauth/v2/token
             security:   false
 
 #        oauth_authorize:
