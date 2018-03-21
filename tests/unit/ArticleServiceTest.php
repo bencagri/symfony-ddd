@@ -1,8 +1,9 @@
 <?php
 namespace App\Tests\Unit;
 
-use App\Aurora\Domain\Article\Article;
-use App\Aurora\Domain\User\User;
+
+use App\Aurora\Domain\Article\Entity\Article;
+use App\Aurora\Domain\User\Entity\User;
 use App\Tests\UnitTest;
 use Symfony\Component\HttpFoundation\Request;
 
