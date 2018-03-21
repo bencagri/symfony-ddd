@@ -110,6 +110,15 @@
     "samj/fractal-bundle": {
         "version": "2.1.0"
     },
+    "sensio/framework-extra-bundle": {
+        "version": "4.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.0",
+            "ref": "aaddfdf43cdecd4cf91f992052d76c2cadc04543"
+        }
+    },
     "symfony/asset": {
         "version": "v4.0.6"
     },
