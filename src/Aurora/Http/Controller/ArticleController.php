@@ -90,6 +90,19 @@ class ArticleController extends AppController
         }
     }
 
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @SWG\Response(
+     *     response=200,
+     *     description="Returns single article Item"
+     * )
+     * @SWG\Response(
+     *     response=500,
+     *     description="Returns error"
+     * )
+     * @SWG\Tag(name="articles")
+     */
     public function create(Request $request)
     {
         try {
