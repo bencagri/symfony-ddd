@@ -35,6 +35,7 @@ class ApiExceptionListener
             $errorBody['exception'] = [
                 'class'   => get_class($throwedException)
             ];
+            $errorBody['trace'] = $throwedException->getTrace();
         }
 
         $event->setResponse(new JsonResponse(['success' => false, 'error' => $errorBody]));
