@@ -21,7 +21,7 @@ class OAuthAuthorizeController extends AuthorizeController {
      * Authorize user
      *
      * @Route("/oauth/v2/auth")
-     * @Method({"POST"})
+     * @Method({"POST","GET"})
      *
      * @Operation(
      *     tags={"OAuth"},

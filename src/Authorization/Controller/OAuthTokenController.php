@@ -21,7 +21,7 @@ class OAuthTokenController extends TokenController {
      * @return TokenInterface
      *
      * @Route("/oauth/v2/token")
-     * @Method("POSt")
+     * @Method({"POST","GET"})
      *
      * @Operation(
      *     tags={"OAuth"},

@@ -6,9 +6,6 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        main:
-            anonymous: true
-
             # activate different ways to authenticate
 
             # http_basic: true
@@ -21,8 +18,9 @@ security:
             pattern:    ^/oauth/v2/token
             security:   false
 
-#        oauth_authorize:
-#            pattern:    ^/oauth/v2/auth
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            security: false
 
         api:
             pattern:    ^/api
@@ -36,6 +34,5 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }

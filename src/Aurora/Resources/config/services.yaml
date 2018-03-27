@@ -27,3 +27,6 @@ services:
       class: FOS\OAuthServerBundle\Entity\ClientManager
       public: true
       arguments: ['@Doctrine\ORM\EntityManagerInterface','%fos_oauth_server.model.client.class%']
+
+  FOS\OAuthServerBundle\Model\AccessTokenManagerInterface:
+      alias: fos_oauth_server.access_token_manager.default
