@@ -1,7 +1,7 @@
 aurora_home:
     path: "/api/home"
     methods: GET
-    controller: App\Aurora\Http\Controller\HomeController::index
+    controller: App\Aurora\Http\Controller\HomeController:index
 
 articles.get:
     path: "/api/articles"
@@ -17,3 +17,8 @@ articles.create:
     path: "/api/articles"
     methods: POST
     controller: App\Aurora\Http\Controller\ArticleController:create
+
+aurora.search:
+    path: "/api/search"
+    methods: GET
+    controller: App\Aurora\Http\Controller\SearchController:index

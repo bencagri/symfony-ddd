@@ -2,12 +2,12 @@
 
 namespace App\Aurora\Domain\Article;
 
+use App\Aurora\App\Support\FractalService;
 use App\Aurora\Domain\Article\Entity\Article;
 use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
-use League\Fractal\Pagination\Cursor;
 use League\Fractal\Pagination\PagerfantaPaginatorAdapter;
 use League\Fractal\Resource\Collection;
 use League\Fractal\Resource\Item;
@@ -32,12 +32,21 @@ class ArticleService
      * @var RouterInterface
      */
     private $router;
+    /**
+     * @var FractalService
+     */
+    private $fractalService;
 
-    public function __construct(EntityManagerInterface $entityManager, ArticleTransformer $articleTransformer)
+    public function __construct(
+        EntityManagerInterface $entityManager,
+        ArticleTransformer $articleTransformer,
+        FractalService $fractalService
+    )
     {
 
         $this->entityManager = $entityManager;
         $this->articleTransformer = $articleTransformer;
+        $this->fractalService = $fractalService;
     }
 
     /**
@@ -113,5 +122,15 @@ class ArticleService
 
         $this->entityManager->getRepository(Article::class)->save($article);
 
+    }
+
+
+    public function searchArticle(Request $request)
+    {
+        $resource = $this->entityManager->getRepository(Article::class)->searchArticle($request);
+
+        $collection = new Collection($resource,$this->articleTransformer,'article');
+
+        return $this->fractalService->transform($collection);
     }
 }

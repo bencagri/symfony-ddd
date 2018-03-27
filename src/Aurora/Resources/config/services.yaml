@@ -19,7 +19,7 @@ services:
   aurora.article.service:
       class: App\Aurora\Domain\Article\ArticleService
       public: true
-      arguments: ['@doctrine.orm.entity_manager','@aurora.article.transformer']
+      arguments: ['@doctrine.orm.entity_manager','@aurora.article.transformer','@aurora.fractal.manager']
   App\Aurora\Domain\Article\ArticleService: '@aurora.article.service'
 
   ## make fos oauth service public

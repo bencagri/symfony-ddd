@@ -22,6 +22,11 @@ security:
             pattern:    ^/oauth/v2/auth
             security: false
 
+        search:
+            pattern: ^/api/search
+            anonymous: true
+            security : false
+
         api:
             pattern:    ^/api
             fos_oauth:  true
