@@ -10,6 +10,13 @@ use Symfony\Component\HttpFoundation\Request;
 class ArticleRepository extends AppEntityRepository
 {
 
+    public function getArticles()
+    {
+        $qb = $this->createQueryBuilder('a');
+
+        return $qb->getQuery();
+    }
+
     public function searchArticle(Request $request)
     {
         $qb = $this->createQueryBuilder('a')
