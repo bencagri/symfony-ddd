@@ -4,6 +4,12 @@ imports:
 services:
   ## here will be aurora's services
 
+  aurora.event_listener.api_exception:
+     class: App\Aurora\App\EventListener\ApiExceptionListener
+     arguments: ['%%kernel.debug%%']
+     tags:
+         - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 200 }
+
   aurora.fractal.manager:
        class: App\Aurora\App\Support\FractalService
        public: true

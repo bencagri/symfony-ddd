@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
 use Swagger\Annotations as SWG;
 
-class ArticleController extends AppController
+class ArticleController
 {
 
 
@@ -29,7 +29,11 @@ class ArticleController extends AppController
      */
     private $router;
 
-    public function __construct(ArticleService $articleService, FractalService $fractalService, RouterInterface $router)
+    public function __construct(
+        ArticleService $articleService,
+        FractalService $fractalService,
+        RouterInterface $router
+    )
     {
         $this->articleService = $articleService;
         $this->fractalService = $fractalService;
