@@ -35,9 +35,8 @@ class SearchController
      * @SWG\Parameter(
      *     name="query",
      *     in="query",
-     *     type="integer",
-     *     description="search query",
-     *     default="1"
+     *     type="string",
+     *     description="search query"
      * )
      * @SWG\Tag(name="search")
      */
