@@ -21,3 +21,9 @@ services:
       public: true
       arguments: ['@doctrine.orm.entity_manager','@aurora.article.transformer']
   App\Aurora\Domain\Article\ArticleService: '@aurora.article.service'
+
+  ## make fos oauth service public
+  fos_oauth_server.client_manager.default:
+      class: FOS\OAuthServerBundle\Entity\ClientManager
+      public: true
+      arguments: ['@Doctrine\ORM\EntityManagerInterface','%fos_oauth_server.model.client.class%']

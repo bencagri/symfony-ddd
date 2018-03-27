@@ -29,6 +29,9 @@ services:
     App\Aurora\Console\:
         resource: '../src/Aurora/Console'
 
+    App\Authorization\Console\:
+        resource: '../src/Authorization/Console'
+
     ## Fixtures
     App\DataFixtures\:
         resource: '../src/DataFixtures'
