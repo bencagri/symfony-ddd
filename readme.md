@@ -74,7 +74,7 @@ Advantages of Domain-Driven Design
 git clone https://github.com/bencagri/symfony4-ddd-skeleton.git
 cd symfony4-ddd-skeleton
 composer install
-bin/console doctrine:database:creata
+bin/console doctrine:database:create
 bin/console doctrine:schema:update --force
 bin/console doctrine:fixtures:load 
 php -S 127.0.0.1:9002 -t public
