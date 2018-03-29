@@ -1,7 +1,3 @@
-aurora_home:
-    path: "/api/home"
-    methods: GET
-    controller: App\Aurora\Http\Controller\HomeController:index
 
 articles.get:
     path: "/api/articles"
@@ -18,11 +14,6 @@ articles.create:
     methods: POST
     controller: App\Aurora\Http\Controller\ArticleController:create
 
-aurora.search:
-    path: "/api/search"
-    methods: GET
-    controller: App\Aurora\Http\Controller\SearchController:index
-
 users.get:
     path: "/api/users"
     methods: GET
@@ -32,3 +23,9 @@ users.get.by.id:
     path: "/api/user/{id}"
     methods: GET
     controller: App\Aurora\Http\Controller\UserController:user
+
+
+aurora.search:
+    path: "/api/search"
+    methods: GET
+    controller: App\Aurora\Http\Controller\SearchController:index
