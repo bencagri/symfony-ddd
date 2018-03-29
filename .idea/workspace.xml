@@ -5,7 +5,6 @@
     <list default="true" id="fa403853-9cc4-4586-bc63-8ecb8d8ae41a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/readme.md" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Aurora/Resources/routing/routes.yaml" afterPath="$PROJECT_DIR$/src/Aurora/Resources/routing/routes.yaml" />
     </list>
     <ignored path="symfony4.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +39,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="457">
-                <caret line="193" column="21" lean-forward="true" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
+              <first_editor relative-caret-position="320">
+                <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -357,7 +356,7 @@
       <workItem from="1521033327605" duration="13735000" />
       <workItem from="1521448969928" duration="36006000" />
       <workItem from="1521720747665" duration="27819000" />
-      <workItem from="1522315779011" duration="5440000" />
+      <workItem from="1522315779011" duration="5766000" />
     </task>
     <task id="LOCAL-00001" summary="Console Command implementation">
       <created>1520850035814</created>
@@ -650,7 +649,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95130000" />
+    <option name="totallyTimeSpent" value="95456000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2528" y="23" width="1264" height="1057" extended-state="0" />
@@ -1135,8 +1134,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="457">
-            <caret line="193" column="21" lean-forward="true" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
+          <first_editor relative-caret-position="320">
+            <caret line="183" column="0" lean-forward="true" selection-start-line="183" selection-start-column="0" selection-end-line="183" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

@@ -180,7 +180,7 @@ And the response is;
 
 Great, I got the article information with a request to `GET /api/article/1`
 
-
+This package was built around [JSON API](http://jsonapi.org/) to take advantage of its features around efficiently caching responses, sometimes eliminating network requests entirely.
 
 #### Packages
 - Symfony Flex
