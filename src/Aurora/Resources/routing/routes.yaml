@@ -22,3 +22,13 @@ aurora.search:
     path: "/api/search"
     methods: GET
     controller: App\Aurora\Http\Controller\SearchController:index
+
+users.get:
+    path: "/api/users"
+    methods: GET
+    controller: App\Aurora\Http\Controller\UserController:index
+
+users.get.by.id:
+    path: "/api/user/{id}"
+    methods: GET
+    controller: App\Aurora\Http\Controller\UserController:user

@@ -12,4 +12,9 @@ class UserRepository extends AppEntityRepository implements UserRepositoryInterf
     {
         // TODO: Implement userDetails() method.
     }
+
+    public function getUsers()
+    {
+        return $this->createQueryBuilder('u')->getQuery();
+    }
 }

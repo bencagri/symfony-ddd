@@ -1,3 +1,6 @@
 services:
     aurora.article.transformer:
         class: App\Aurora\Domain\Article\ArticleTransformer
+
+    aurora.user.transformer:
+        class: App\Aurora\Domain\User\UserTransformer

@@ -10,17 +10,25 @@ services:
      tags:
          - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 200 }
 
+  ## Fractal Service
   aurora.fractal.manager:
        class: App\Aurora\App\Support\FractalService
        public: true
        arguments: ['%siteUrl%']
   App\Aurora\App\Support\FractalService: '@aurora.fractal.manager'
 
+  ## Aurora Article Service
   aurora.article.service:
       class: App\Aurora\Domain\Article\ArticleService
       public: true
       arguments: ['@doctrine.orm.entity_manager','@aurora.article.transformer','@aurora.fractal.manager']
   App\Aurora\Domain\Article\ArticleService: '@aurora.article.service'
+
+  ## Aurora User Service
+  aurora.user.service:
+      class: App\Aurora\Domain\User\UserService
+      arguments: ['@doctrine.orm.entity_manager','@aurora.fractal.manager','@aurora.user.transformer']
+  App\Aurora\Domain\User\UserService: '@aurora.user.service'
 
   ## make fos oauth service public
   fos_oauth_server.client_manager.default:
