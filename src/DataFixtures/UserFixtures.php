@@ -14,6 +14,8 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
     {
         $user = new User();
         $user->setUsername('Aurora');
+        $user->setEmail('user@test.com');
+        $user->setPassword(sha1('secret'));
 
         $manager->persist($user);
         $manager->flush();

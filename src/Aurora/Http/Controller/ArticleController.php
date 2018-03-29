@@ -99,11 +99,43 @@ class ArticleController
      * @return JsonResponse
      * @SWG\Response(
      *     response=200,
-     *     description="Returns single article Item"
+     *     description="returns success message"
      * )
      * @SWG\Response(
      *     response=500,
      *     description="Returns error"
+     * )
+     *
+     * @SWG\Parameter(
+     *     name="title",
+     *     in="formData",
+     *     type="string",
+     *     required=true,
+     *     description="article title"
+     * )
+     * @SWG\Parameter(
+     *     name="body",
+     *     in="formData",
+     *     type="string",
+     *     required=true,
+     *     description="article body, markdown accepted"
+     * )
+     * @SWG\Parameter(
+     *     name="user",
+     *     in="formData",
+     *     type="integer",
+     *     required=true,
+     *     description="user id from GET /users"
+     * )
+     * @SWG\Parameter(
+     *     name="tags",
+     *     in="formData",
+     *     type="array",
+     *     required=false,
+     *     @SWG\Items(
+     *         type="string"
+     *     ),
+     *     description="post tags"
      * )
      * @SWG\Tag(name="articles")
      */
@@ -113,7 +145,7 @@ class ArticleController
             $this->articleService->addArticle($request);
             return new JsonResponse($this->fractalService->transform('Article has been added'),Response::HTTP_OK);
         }catch (\Exception $exception) {
-            return new JsonResponse($this->fractalService->transform('Something went wrong', false),Response::HTTP_INTERNAL_SERVER_ERROR);
+            return new JsonResponse($this->fractalService->transform($exception->getMessage(), false),Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
     }

@@ -101,24 +101,23 @@ class ArticleService
      */
     public function addArticle(Request $request)
     {
+        var_dump($request);
 
-        $userRepository = $this->entityManager->getRepository(User::class);
-
-        $user = null;
-        if ($request->request->get('user')) {
-            $user = $userRepository->find($request->request->get('user'));
-        }
-
-        if (!$user){
-            $user = new User();
-            $user->setUsername(str_shuffle('acbaksdlfurieowpvmznhqqurlfotpcnvbhrtsa'));
-        }
+        /** @var User $user */
+        $user =  $this->entityManager->getReference(User::class,$request->request->get('user'));
 
         $article = new Article();
         $article->setTitle($request->request->get('title'));
         $article->setBody($request->request->get('body'));
         $article->setAuthor($user);
         $article->setContributors(new ArrayCollection([$user]));
+
+        //set tags
+        if(is_array($request->request->get('tags'))){
+            foreach ($request->request->get('tags') as $tag) {
+                $article->addTagFromName($tag);
+            }
+        }
 
         $this->entityManager->getRepository(Article::class)->save($article);
 

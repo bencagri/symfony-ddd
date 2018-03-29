@@ -5,6 +5,7 @@ namespace App\Aurora\Domain\Article\Entity;
 
 use App\Aurora\Domain\User\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
+use Gedmo\Sluggable\Util as Sluggable;
 
 class Article
 {
@@ -124,6 +125,16 @@ class Article
         if (!$this->tags->contains($tag)){
             $this->tags->add($tag);
         }
+    }
+
+    public function addTagFromName($name)
+    {
+        $tag = new Tag();
+        $slug = Sluggable\Urlizer::urlize($name, '-');
+        $tag->setTitle($name);
+        $tag->setSlug($slug);
+
+        $this->tags->add($tag);
     }
 
     /**
