@@ -1,6 +1,3 @@
-[![Build Status](https://travis-ci.org/bencagri/symfony4-ddd-skeleton.svg?branch=master)](https://travis-ci.org/bencagri/symfony4-ddd-skeleton)
-
-
 <p align="center"><img src="http://oi66.tinypic.com/296gq6h.jpg"></p>
 
 ### Symfony 4 DDD Approach
