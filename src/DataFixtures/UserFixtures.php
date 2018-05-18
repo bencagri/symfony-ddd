@@ -12,9 +12,11 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
     const TEST_USER = 'test-user';
     public function load(ObjectManager $manager)
     {
+        $faker = \Faker\Factory::create();
+
         $user = new User();
-        $user->setUsername('Aurora');
-        $user->setEmail('user@test.com');
+        $user->setUsername($faker->userName);
+        $user->setEmail($faker->email);
         $user->setPassword(sha1('secret'));
 
         $manager->persist($user);

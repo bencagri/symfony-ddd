@@ -68,6 +68,9 @@
     "friendsofsymfony/oauth2-php": {
         "version": "1.2.3"
     },
+    "fzaninotto/faker": {
+        "version": "v1.7.1"
+    },
     "gedmo/doctrine-extensions": {
         "version": "v2.4.33"
     },
