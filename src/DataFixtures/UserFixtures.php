@@ -16,7 +16,7 @@ class UserFixtures extends Fixture implements OrderedFixtureInterface
 
         $user = new User();
         $user->setUsername($faker->userName);
-        $user->setEmail($faker->email);
+        $user->setEmail("user@example.com");
         $user->setPassword(sha1('secret'));
 
         $manager->persist($user);
