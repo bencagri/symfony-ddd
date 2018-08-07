@@ -5,6 +5,7 @@ namespace App\Aurora\Domain\Article;
 use App\Aurora\App\Support\FractalService;
 use App\Aurora\Domain\Article\Entity\Article;
 use App\Aurora\Domain\User\Entity\User;
+use App\Aurora\Infrastructure\Article\ArticleRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityNotFoundException;
@@ -28,10 +29,17 @@ class ArticleService
      * @var ArticleTransformer
      */
     private $articleTransformer;
+
     /**
      * @var RouterInterface
      */
     private $router;
+
+    /**
+     * @var ArticleRepository
+     */
+    private $articleRepository;
+
     /**
      * @var FractalService
      */
@@ -43,10 +51,10 @@ class ArticleService
         FractalService $fractalService
     )
     {
-
         $this->entityManager = $entityManager;
         $this->articleTransformer = $articleTransformer;
         $this->fractalService = $fractalService;
+        $this->articleRepository = $this->entityManager->getRepository(Article::class);
     }
 
     /**
@@ -59,9 +67,7 @@ class ArticleService
         $page = NULL !== $request->get('page') ? (int) $request->get('page') : 1;
         $perPage = NULL !== $request->get('per_page') ? (int) $request->get('per_page') : 10;
 
-        $articles = $this->entityManager->getRepository(Article::class);
-
-        $doctrineAdapter = new DoctrineORMAdapter($articles->getArticles());
+        $doctrineAdapter = new DoctrineORMAdapter($this->articleRepository->getArticles());
         $paginator = new Pagerfanta($doctrineAdapter);
         $paginator->setCurrentPage($page);
         $paginator->setMaxPerPage($perPage);
@@ -73,11 +79,13 @@ class ArticleService
             $inputParams = $request->attributes->get('_route_params');
             $newParams = array_merge($inputParams, $request->query->all());
             $newParams['page'] = $page;
+
             return $router->generate($route, $newParams, 0);
         });
 
-        $resource = new Collection($filteredResults,$this->articleTransformer, 'article');
+        $resource = new Collection($filteredResults, $this->articleTransformer, 'article');
         $resource->setPaginator($paginatorAdapter);
+
         return $resource;
     }
 
@@ -88,10 +96,11 @@ class ArticleService
      */
     public function getArticleById($id)
     {
-        $article = $this->entityManager->getRepository(Article::class)->find($id);
+        $article = $this->articleRepository->find($id);
 
-        if ($article)
+        if ($article) {
             return new Item($article, $this->articleTransformer, 'article');
+        }
 
         throw new EntityNotFoundException("Article not found");
     }
@@ -112,21 +121,21 @@ class ArticleService
         $article->setAuthor($user);
         $article->setContributors(new ArrayCollection([$user]));
 
-        //set tags
-        if(is_array($request->request->get('tags'))){
+        // set tags
+        if (is_array($request->request->get('tags'))) {
             foreach ($request->request->get('tags') as $tag) {
                 $article->addTagFromName($tag);
             }
         }
 
-        $this->entityManager->getRepository(Article::class)->save($article);
+        $this->articleRepository->save($article);
 
     }
 
 
     public function searchArticle(Request $request)
     {
-        $resource = $this->entityManager->getRepository(Article::class)->searchArticle($request);
+        $resource = $this->articleRepository->searchArticle($request);
 
         $collection = new Collection($resource,$this->articleTransformer,'article');
 
