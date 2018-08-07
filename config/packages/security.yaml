@@ -1,7 +1,16 @@
 security:
+    encoders:
+        App\Aurora\Domain\User\Entity\User:
+            algorithm:  bcrypt
+            cost:       12
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        my_database_provider:
+            entity:
+                class: App\Aurora\Domain\User\Entity\User
+                property: username
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

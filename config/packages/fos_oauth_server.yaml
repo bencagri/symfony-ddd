@@ -5,3 +5,9 @@ fos_oauth_server:
     access_token_class:  App\Authorization\Entity\Oauth2\AccessToken
     refresh_token_class: App\Authorization\Entity\Oauth2\RefreshToken
     auth_code_class:     App\Authorization\Entity\Oauth2\AuthCode
+
+    service:
+        user_provider: security.user.provider.concrete.my_database_provider
+        options:
+            supported_scopes: user
+            access_token_lifetime: 3600
