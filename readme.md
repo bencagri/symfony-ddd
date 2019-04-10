@@ -32,29 +32,29 @@ Advantages of Domain-Driven Design
 │   │   └── Entity
 │   │       └── Oauth2
 │   ├── DataFixtures
-│   ├── Project
-│   │   ├── App
-│   │   │   ├── EventListener
-│   │   │   ├── Interface
-│   │   │   ├── Support
-│   │   │   └── Trait
-│   │   ├── Console
-│   │   ├── Domain
-│   │   │   ├── Article
-│   │   │   │   └── Entity
-│   │   │   └── User
-│   │   │       ├── Contract
-│   │   │       └── Entity
-│   │   ├── Http
-│   │   │   └── Controller
-│   │   ├── Infrastructure
-│   │   │   ├── Article
-│   │   │   └── User
-│   │   └── Resources
-│   │       ├── config
-│   │       ├── doctrine
-│   │       │   └── mapping
-│   │       └── routing
+│   └── Project
+│       ├── App
+│       │   ├── EventListener
+│       │   ├── Interface
+│       │   ├── Support
+│       │   └── Trait
+│       ├── Console
+│       ├── Domain
+│       │   ├── Article
+│       │   │   └── Entity
+│       │   └── User
+│       │       ├── Contract
+│       │       └── Entity
+│       ├── Http
+│       │   └── Controller
+│       ├── Infrastructure
+│       │   ├── Article
+│       │   └── User
+│       └── Resources
+│            ├── config
+│            ├── doctrine
+│            │   └── mapping
+│            └── routing
 ├── templates
 ├── tests
 │   ├── functional
