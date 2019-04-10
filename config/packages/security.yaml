@@ -14,6 +14,11 @@ security:
             # form_login: true
             # https://symfony.com/doc/current/security/form_login_setup.html
 
+        api_doc:
+            pattern:    ^/api/doc
+            security:   false
+            anonymous: true
+
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
