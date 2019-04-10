@@ -26,6 +26,12 @@ Advantages of Domain-Driven Design
 │       └── dev
 ├── public
 ├── src
+│   ├── Authorization
+│   │   ├── Console
+│   │   ├── Controller
+│   │   └── Entity
+│   │       └── Oauth2
+│   ├── DataFixtures
 │   ├── Project
 │   │   ├── App
 │   │   │   ├── EventListener
@@ -49,12 +55,6 @@ Advantages of Domain-Driven Design
 │   │       ├── doctrine
 │   │       │   └── mapping
 │   │       └── routing
-│   ├── Authorization
-│   │   ├── Console
-│   │   ├── Controller
-│   │   └── Entity
-│   │       └── Oauth2
-│   └── DataFixtures
 ├── templates
 ├── tests
 │   ├── functional
