@@ -1,0 +1,14 @@
+App\Project\Domain\Article\Entity\Tag:
+    type: entity
+    table: tags
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        title:
+            type: string
+            length: 100
+        slug:
+            type: string
+            length: 100

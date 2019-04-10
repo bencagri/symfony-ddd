@@ -26,9 +26,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Authorization/Entity/Oauth2'
                 prefix: 'App\Authorization\Entity\Oauth2'
                 alias: App
-            Aurora:
+            Project:
                 is_bundle: false
                 type: yml
-                dir: '%kernel.project_dir%/src/Aurora/Resources/doctrine/mapping'
-                prefix: 'App\Aurora\Domain'
+                dir: '%kernel.project_dir%/src/Project/Resources/doctrine/mapping'
+                prefix: 'App\Project\Domain'
                 alias: App

@@ -1,0 +1,6 @@
+services:
+    project.article.transformer:
+        class: App\Project\Domain\Article\ArticleTransformer
+
+    project.user.transformer:
+        class: App\Project\Domain\User\UserTransformer

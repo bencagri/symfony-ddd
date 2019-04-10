@@ -26,7 +26,7 @@ Advantages of Domain-Driven Design
 │       └── dev
 ├── public
 ├── src
-│   ├── Aurora
+│   ├── Project
 │   │   ├── App
 │   │   │   ├── EventListener
 │   │   │   ├── Interface

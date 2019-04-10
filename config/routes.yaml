@@ -2,9 +2,9 @@ NelmioApiDocBundle:
     resource: "@NelmioApiDocBundle/Resources/config/routing/swaggerui.xml"
     prefix:   /
 
-aurora:
+project:
     # loads routes from the YAML or XML files found in some bundle directory
-    resource: '../src/Aurora/Resources/routing/'
+    resource: '../src/Project/Resources/routing/'
     type:     directory
 
 authorization:

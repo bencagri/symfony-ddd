@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Aurora\Domain\Article\Entity\Article;
+use App\Project\Domain\Article\Entity\Article;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

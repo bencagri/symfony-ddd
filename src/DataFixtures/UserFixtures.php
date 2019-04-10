@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Aurora\Domain\User\Entity\User;
+use App\Project\Domain\User\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;

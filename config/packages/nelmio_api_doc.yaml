@@ -1,7 +1,7 @@
 nelmio_api_doc:
     documentation:
         info:
-            title: Aurora Article
+            title: Project Article
             description: Article Api with Symfony DDD!
             version: 1.0.0
         securityDefinitions:

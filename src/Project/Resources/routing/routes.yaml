@@ -1,0 +1,31 @@
+
+articles.get:
+    path: "/api/articles"
+    methods: GET
+    controller: App\Project\Http\Controller\ArticleController:index
+
+articles.get.by.id:
+    path: "/api/article/{id}"
+    methods: GET
+    controller: App\Project\Http\Controller\ArticleController:article
+
+articles.create:
+    path: "/api/articles"
+    methods: POST
+    controller: App\Project\Http\Controller\ArticleController:create
+
+users.get:
+    path: "/api/users"
+    methods: GET
+    controller: App\Project\Http\Controller\UserController:index
+
+users.get.by.id:
+    path: "/api/user/{id}"
+    methods: GET
+    controller: App\Project\Http\Controller\UserController:user
+
+
+project.search:
+    path: "/api/search"
+    methods: GET
+    controller: App\Project\Http\Controller\SearchController:index
