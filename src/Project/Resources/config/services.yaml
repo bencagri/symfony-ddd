@@ -1,0 +1,40 @@
+imports:
+  - { resource: "transformers.yaml"}
+
+services:
+  ## here will be project's services
+
+  project.event_listener.api_exception:
+     class: App\Project\App\EventListener\ApiExceptionListener
+     arguments: ['%%kernel.debug%%']
+     tags:
+         - { name: kernel.event_listener, event: kernel.exception, method: onKernelException, priority: 200 }
+
+  ## Fractal Service
+  project.fractal.manager:
+       class: App\Project\App\Support\FractalService
+       public: true
+       arguments: ['%siteUrl%']
+  App\Project\App\Support\FractalService: '@project.fractal.manager'
+
+  ## Project Article Service
+  project.article.service:
+      class: App\Project\Domain\Article\ArticleService
+      public: true
+      arguments: ['@doctrine.orm.entity_manager','@project.article.transformer','@project.fractal.manager']
+  App\Project\Domain\Article\ArticleService: '@project.article.service'
+
+  ## Project User Service
+  project.user.service:
+      class: App\Project\Domain\User\UserService
+      arguments: ['@doctrine.orm.entity_manager','@project.fractal.manager','@project.user.transformer']
+  App\Project\Domain\User\UserService: '@project.user.service'
+
+  ## make fos oauth service public
+  fos_oauth_server.client_manager.default:
+      class: FOS\OAuthServerBundle\Entity\ClientManager
+      public: true
+      arguments: ['@Doctrine\ORM\EntityManagerInterface','%fos_oauth_server.model.client.class%']
+
+  FOS\OAuthServerBundle\Model\AccessTokenManagerInterface:
+      alias: fos_oauth_server.access_token_manager.default

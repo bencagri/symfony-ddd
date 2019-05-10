@@ -4,6 +4,7 @@
     "require": {
         "php": "^7.1.3",
         "ext-iconv": "*",
+        "ext-pdo_sqlite": "^7.3",
         "doctrine/doctrine-bundle": "dev-master",
         "doctrine/orm": "^2.6",
         "friendsofsymfony/oauth-server-bundle": "dev-master",
@@ -17,8 +18,8 @@
         "symfony/flex": "^1.0",
         "symfony/form": "^4.0",
         "symfony/framework-bundle": "^4.0",
-        "symfony/lts": "^4@dev",
         "symfony/templating": "^4.0",
+        "symfony/translation": "^4.0",
         "symfony/twig-bundle": "^4.0",
         "symfony/validator": "^4.0",
         "symfony/var-dumper": "^4.0",

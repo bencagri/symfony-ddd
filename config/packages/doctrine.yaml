@@ -8,11 +8,10 @@ parameters:
 doctrine:
     dbal:
         # configure these for your database server
-        driver: 'pdo_mysql'
-        server_version: '5.7'
+        driver: env(DATABASE_DRIVER)
+        server_version: env(DATABASE_SERVER_VERSION)
         charset: utf8mb4
 
-        # With Symfony 3.3, remove the `resolve:` prefix
         url: '%env(resolve:DATABASE_URL)%'
 
     orm:
@@ -26,9 +25,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Authorization/Entity/Oauth2'
                 prefix: 'App\Authorization\Entity\Oauth2'
                 alias: App
-            Aurora:
+            Project:
                 is_bundle: false
                 type: yml
-                dir: '%kernel.project_dir%/src/Aurora/Resources/doctrine/mapping'
-                prefix: 'App\Aurora\Domain'
+                dir: '%kernel.project_dir%/src/Project/Resources/doctrine/mapping'
+                prefix: 'App\Project\Domain'
                 alias: App

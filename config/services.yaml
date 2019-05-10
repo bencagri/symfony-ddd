@@ -21,13 +21,13 @@ services:
 #
 #    # controllers are imported separately to make sure services can be injected
 #    # as action arguments even if you don't extend any base controller class
-    App\Aurora\Http\Controller\:
-        resource: '../src/Aurora/Http/Controller'
+    App\Project\Http\Controller\:
+        resource: '../src/Project/Http/Controller'
         tags: ['controller.service_arguments']
 
     ## Register commands
-    App\Aurora\Console\:
-        resource: '../src/Aurora/Console'
+    App\Project\Console\:
+        resource: '../src/Project/Console'
 
     App\Authorization\Console\:
         resource: '../src/Authorization/Console'
@@ -42,11 +42,11 @@ services:
 
 
 #    fractal.service.on.kernel.response:
-#        class: App\Aurora\App\EventListenter\KernelResponseListener
-#        arguments: ["@aurora.fractal.manager"]
+#        class: App\Project\App\EventListenter\KernelResponseListener
+#        arguments: ["@project.fractal.manager"]
 #        tags:
 #           - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
 imports:
-  - { resource: "../src/Aurora/Resources/config/services.yaml"}
+  - { resource: "../src/Project/Resources/config/services.yaml"}
 
 

@@ -1,5 +1,3 @@
-<p align="center"><img src="http://oi66.tinypic.com/296gq6h.jpg"></p>
-
 ### Symfony 4 DDD Approach
 
 Article application with Symfony 4 and DDD Approach. 
@@ -26,35 +24,35 @@ Advantages of Domain-Driven Design
 │       └── dev
 ├── public
 ├── src
-│   ├── Aurora
-│   │   ├── App
-│   │   │   ├── EventListener
-│   │   │   ├── Interface
-│   │   │   ├── Support
-│   │   │   └── Trait
-│   │   ├── Console
-│   │   ├── Domain
-│   │   │   ├── Article
-│   │   │   │   └── Entity
-│   │   │   └── User
-│   │   │       ├── Contract
-│   │   │       └── Entity
-│   │   ├── Http
-│   │   │   └── Controller
-│   │   ├── Infrastructure
-│   │   │   ├── Article
-│   │   │   └── User
-│   │   └── Resources
-│   │       ├── config
-│   │       ├── doctrine
-│   │       │   └── mapping
-│   │       └── routing
 │   ├── Authorization
 │   │   ├── Console
 │   │   ├── Controller
 │   │   └── Entity
 │   │       └── Oauth2
-│   └── DataFixtures
+│   ├── DataFixtures
+│   └── Project
+│       ├── App
+│       │   ├── EventListener
+│       │   ├── Interface
+│       │   ├── Support
+│       │   └── Trait
+│       ├── Console
+│       ├── Domain
+│       │   ├── Article
+│       │   │   └── Entity
+│       │   └── User
+│       │       ├── Contract
+│       │       └── Entity
+│       ├── Http
+│       │   └── Controller
+│       ├── Infrastructure
+│       │   ├── Article
+│       │   └── User
+│       └── Resources
+│            ├── config
+│            ├── doctrine
+│            │   └── mapping
+│            └── routing
 ├── templates
 ├── tests
 │   ├── functional
@@ -82,6 +80,8 @@ php -S 127.0.0.1:9002 -t public
 ```
 
 then visit `127.0.0.1:9002/api/doc`  you should see the documentation now.
+
+<p align="center"><img src="http://oi66.tinypic.com/296gq6h.jpg"></p>
 
 ### Making Request
 When you try to make a request you will get an error. Because to make a request you need `Access Token`.
