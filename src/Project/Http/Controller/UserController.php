@@ -96,7 +96,7 @@ class UserController
             return new JsonResponse($this->fractalService->transform($user));
 
         }catch (EntityNotFoundException $exception) {
-            return new JsonResponse($this->fractalService->transform($exception->getMessage(),false),Response::HTTP_NO_CONTENT);
+            return new JsonResponse($this->fractalService->transform($exception->getMessage(), false), Response::HTTP_NO_CONTENT);
         }
     }
 }

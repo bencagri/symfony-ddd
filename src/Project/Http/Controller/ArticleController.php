@@ -89,8 +89,8 @@ class ArticleController
         try {
             $article = $this->articleService->getArticleById($id);
             return new JsonResponse($this->fractalService->transform($article));
-        }catch (\Exception $e){
-            return new JsonResponse($this->fractalService->transform($e->getMessage(),false), Response::HTTP_INTERNAL_SERVER_ERROR);
+        }catch (\Exception $e) {
+            return new JsonResponse($this->fractalService->transform($e->getMessage(), false), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
@@ -143,9 +143,9 @@ class ArticleController
     {
         try {
             $this->articleService->addArticle($request);
-            return new JsonResponse($this->fractalService->transform('Article has been added'),Response::HTTP_OK);
+            return new JsonResponse($this->fractalService->transform('Article has been added'), Response::HTTP_OK);
         }catch (\Exception $exception) {
-            return new JsonResponse($this->fractalService->transform($exception->getMessage(), false),Response::HTTP_INTERNAL_SERVER_ERROR);
+            return new JsonResponse($this->fractalService->transform($exception->getMessage(), false), Response::HTTP_INTERNAL_SERVER_ERROR);
         }
 
     }

@@ -13,7 +13,7 @@ class ArticleFixtures extends Fixture implements OrderedFixtureInterface
     public function load(ObjectManager $manager)
     {
         $faker = \Faker\Factory::create();
-        for ($i=0; $i <= 50; $i++){
+        for ($i = 0; $i <= 50; $i++) {
             $article = new Article();
 
             $article->setContributors(

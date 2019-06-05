@@ -28,19 +28,19 @@ class FractalService extends Manager
      */
     public function transform($resource, $success = true)
     {
-        if ($resource instanceof ResourceInterface){
+        if ($resource instanceof ResourceInterface) {
 
             $this->setSerializer(new JsonApiSerializer($this->baseUrl));
 
             //if there is an include, set transformer include
-            if ( isset($_GET['include']) && !empty($_GET['include'])) {
+            if (isset($_GET['include']) && !empty($_GET['include'])) {
                 $this->parseIncludes($_GET['include']);
             }
 
             $resource = $this->createData($resource);
 
             $response = array_merge(['success' => $success], $resource->toArray());
-        }else{
+        }else {
             $response = [
                 'success' => $success,
                 'message' => $resource

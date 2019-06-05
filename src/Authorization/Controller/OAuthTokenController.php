@@ -102,8 +102,8 @@ class OAuthTokenController extends TokenController {
      */
     public function tokenAction(Request $request)
     {
-        if ( ! $request->request->get('grant_type')){
-            $request->request->set('grant_type','client_credentials');
+        if (!$request->request->get('grant_type')) {
+            $request->request->set('grant_type', 'client_credentials');
         }
 
         return parent::tokenAction($request);

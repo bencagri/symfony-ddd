@@ -68,7 +68,7 @@ class UserService
             return $router->generate($route, $newParams, 0);
         });
 
-        $resource = new Collection($filteredResults,$this->userTransformer, 'user');
+        $resource = new Collection($filteredResults, $this->userTransformer, 'user');
         $resource->setPaginator($paginatorAdapter);
         return $resource;
     }
@@ -77,10 +77,11 @@ class UserService
     {
         $user = $this->entityManager->getRepository(User::class)->find($id);
 
-        if (!$user)
-            throw new EntityNotFoundException('user not found');
+        if (!$user) {
+                    throw new EntityNotFoundException('user not found');
+        }
 
-        return new Item($user,$this->userTransformer,'user');
+        return new Item($user, $this->userTransformer, 'user');
 
     }
 }

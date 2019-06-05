@@ -122,7 +122,7 @@ class Article
      */
     public function addTag(Tag $tag)
     {
-        if (!$this->tags->contains($tag)){
+        if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
         }
     }
