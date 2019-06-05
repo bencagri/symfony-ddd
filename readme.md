@@ -1,5 +1,8 @@
 ### Symfony 4 DDD Approach
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bencagri/symfony4-ddd/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bencagri/symfony4-ddd/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/bencagri/symfony4-ddd/badges/build.png?b=master)](https://scrutinizer-ci.com/g/bencagri/symfony4-ddd/build-status/master)
+
 Article application with Symfony 4 and DDD Approach. 
 
 Advantages of Domain-Driven Design
