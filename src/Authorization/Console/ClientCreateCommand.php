@@ -16,7 +16,7 @@ class ClientCreateCommand extends ContainerAwareCommand
      */
     private $clientManager;
 
-    protected function configure ()
+    protected function configure()
     {
 
         $this
@@ -26,10 +26,10 @@ class ClientCreateCommand extends ContainerAwareCommand
             ->addOption('grant-type', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_OPTIONAL, 'Set allowed grant type. Use multiple times to set multiple grant types', 'client_credentials')
         ;
     }
-    protected function execute (InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        $this->clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');;
+        $this->clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default'); ;
         $client = $this->clientManager->createClient();
         $client->setRedirectUris($input->getOption('redirect-uri'));
         $client->setAllowedGrantTypes([$input->getOption('grant-type')]);

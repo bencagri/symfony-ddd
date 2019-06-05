@@ -76,7 +76,7 @@ class ArticleService
             return $router->generate($route, $newParams, 0);
         });
 
-        $resource = new Collection($filteredResults,$this->articleTransformer, 'article');
+        $resource = new Collection($filteredResults, $this->articleTransformer, 'article');
         $resource->setPaginator($paginatorAdapter);
         return $resource;
     }
@@ -90,8 +90,9 @@ class ArticleService
     {
         $article = $this->entityManager->getRepository(Article::class)->find($id);
 
-        if ($article)
-            return new Item($article, $this->articleTransformer, 'article');
+        if ($article) {
+                    return new Item($article, $this->articleTransformer, 'article');
+        }
 
         throw new EntityNotFoundException("Article not found");
     }
@@ -104,7 +105,7 @@ class ArticleService
         var_dump($request);
 
         /** @var User $user */
-        $user =  $this->entityManager->getReference(User::class,$request->request->get('user'));
+        $user = $this->entityManager->getReference(User::class, $request->request->get('user'));
 
         $article = new Article();
         $article->setTitle($request->request->get('title'));
@@ -113,7 +114,7 @@ class ArticleService
         $article->setContributors(new ArrayCollection([$user]));
 
         //set tags
-        if(is_array($request->request->get('tags'))){
+        if (is_array($request->request->get('tags'))) {
             foreach ($request->request->get('tags') as $tag) {
                 $article->addTagFromName($tag);
             }
@@ -128,7 +129,7 @@ class ArticleService
     {
         $resource = $this->entityManager->getRepository(Article::class)->searchArticle($request);
 
-        $collection = new Collection($resource,$this->articleTransformer,'article');
+        $collection = new Collection($resource, $this->articleTransformer, 'article');
 
         return $this->fractalService->transform($collection);
     }
