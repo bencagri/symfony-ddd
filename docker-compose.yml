@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+
+  php:
+    build: .docker/php
+    working_dir: /var/www/html
+    volumes:
+      - ./:/var/www/html
+    environment:
+      DATABASE_DRIVER: "pdo_sqlite"
+      DATABASE_SERVER_VERSION: "3.15"
+      DATABASE_URL: "sqlite:///%kernel.project_dir%/var/database.sqlite"
+    command: bash -c "composer install &&
+               bash ./.docker/scripts/setup.sh &&
+               php -d variables_order=EGPCS -S 0.0.0.0:80 -t public"
+    ports:
+      - 80:80

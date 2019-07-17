@@ -86,6 +86,20 @@ then visit `127.0.0.1:9002/api/doc`  you should see the documentation now.
 
 <p align="center"><img src="http://oi66.tinypic.com/296gq6h.jpg"></p>
 
+### With Docker
+```
+# Start the application
+docker-compose up -d
+
+# View logs to monitor installation progress
+docker-compose logs -f
+
+# Stop the application
+docker-compose down
+
+```
+
+
 ### Making Request
 When you try to make a request you will get an error. Because to make a request you need `Access Token`.
 
