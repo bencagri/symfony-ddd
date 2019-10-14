@@ -84,7 +84,9 @@ php -S 127.0.0.1:9002 -t public
 
 then visit `127.0.0.1:9002/api/doc`  you should see the documentation now.
 
-<p align="center"><img src="http://oi66.tinypic.com/296gq6h.jpg"></p>
+<p align="center">
+![Screenshot](screenshot.png)
+</p>
 
 ### With Docker
 ```
