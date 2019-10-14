@@ -85,7 +85,7 @@ php -S 127.0.0.1:9002 -t public
 then visit `127.0.0.1:9002/api/doc`  you should see the documentation now.
 
 <p align="center">
-<img src="/bencagri/symfony4-ddd/blob/master/screenshot.png">
+<img src="screenshot.png">
 </p>
 
 ### With Docker
